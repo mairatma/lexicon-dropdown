@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Demo: Dropdown</title>
+
+		<link rel="stylesheet" href="../node_modules/lexicon-ux/build/css/atlas-font-awesome.css">
+		<script src="../build/globals/dropdown.js"></script>
+	</head>
+	<body>
+		<h1>Lexicon Dropdown Component</h1>
+
+		<script type="text/javascript">
+			new Lexicon.LexiconDropdown({
+				items: [{
+					label: 'Order by:',
+					type: 'header'
+				}, {
+					active: true,
+					href: '#',
+					label: 'Author',
+					type: 'link'
+				}, {
+					disabled: true,
+					href: '#',
+					label: 'Title Entry',
+					type: 'link'
+				}, {
+					type: 'divider'
+				}, {
+					href: '#',
+					label: 'Date',
+					type: 'link'
+				}, {
+					href: '#',
+					label: 'Description',
+					type: 'link'
+				}, {
+					href: '#',
+					label: 'Status',
+					type: 'link'
+				}]
+			});
+
+			new Lexicon.LexiconDropdown({
+				items: [{
+					label: 'Dropdown Header',
+					type: 'header'
+				}, {
+					type: 'scroller',
+					items: [{
+						href: '#',
+						label: 'Actions',
+						type: 'link'
+					}, {
+						href: '#',
+						label: 'Edit',
+						type: 'link'
+					}, {
+						href: '#',
+						label: 'View',
+						type: 'link'
+					}, {
+						href: '#',
+						label: 'Permissions',
+						type: 'link'
+					}, {
+						href: '#',
+						label: 'Configuration',
+						type: 'link'
+					}, {
+						href: '#',
+						label: 'Look & Feel',
+						type: 'link'
+					}]
+				}, {
+					disabled: true,
+					href: '#',
+					label: 'Disabled',
+					type: 'link'
+				}, {
+					type: 'divider'
+				}, {
+					href: '#',
+					label: 'Scope',
+					type: 'link'
+				}]
+			});
+		</script>
+	</body>
+</html>

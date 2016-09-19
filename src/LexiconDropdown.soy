@@ -1,0 +1,79 @@
+{namespace LexiconDropdown}
+
+/**
+ * This renders an icon element based on the lexicon icon definition
+ * found at http://liferay.github.io/lexicon/content/dropdowns/
+ *
+ * @param items
+ */
+{template .render}
+	{call Dropdown.render data="all"}
+		{param header kind="html"}
+			<button class="btn btn-default dropdown-toggle" data-onclick="toggle" type="button">
+				Default <span class="icon-caret-down"></span>
+			</button>
+		{/param}
+
+		{param body kind="html"}
+			{call .dropdownItems data="all"}
+				{param items: $items /}
+			{/call}
+		{/param}
+
+		{param elementClasses: 'dropdown' /}
+		{param position: 0 /}
+		{param positionClassOnMenu: true /}
+	{/call}
+{/template}
+
+/**
+ *
+ * @param items
+ */
+{template .dropdownItems}
+	{foreach $item in $items}
+		{delcall LexiconDropdown.Item variant="$item.type" data="all" }
+			{param item: $item /}
+		{/delcall}
+	{/foreach}
+{/template}
+
+/**
+ *
+ * @param item
+ */
+{deltemplate LexiconDropdown.Item}
+	<li class="{$item.active ? 'active' : ''}{$item.disabled ? 'disabled' : ''}{$item.cssClass ? ' ' + $item.cssClass : ''}">
+		<a class="{$item.linkCssClass ?: ''}" href="{$item.href}">{$item.label}</a>
+	</li>
+{/deltemplate}
+
+/**
+ *
+ * @param item
+ */
+{deltemplate LexiconDropdown.Item variant="'divider'"}
+	<li class="divider{$item.cssClass ? ' ' + $item.cssClass : ''}" role="presentation"></li>
+{/deltemplate}
+
+/**
+ *
+ * @param item
+ */
+{deltemplate LexiconDropdown.Item variant="'header'"}
+	<li class="dropdown-header{$item.cssClass ? ' ' + $item.cssClass : ''}" role="presentation">{$item.label}</li>
+{/deltemplate}
+
+/**
+ *
+ * @param item
+ */
+{deltemplate LexiconDropdown.Item variant="'scroller'"}
+	<li>
+		<ul class="inline-scroller">
+			{call .dropdownItems data="all"}
+				{param items: $item.items /}
+			{/call}
+		</ul>
+	</li>
+{/deltemplate}
