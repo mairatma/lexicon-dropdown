@@ -4,15 +4,21 @@
  * This renders an icon element based on the lexicon icon definition
  * found at http://liferay.github.io/lexicon/content/dropdowns/
  *
+ * @param? alignedPosition
+ * @param? classMap
+ * @param? elementClasses
+ * @param? expanded
  * @param items
+ * @param? position
+ * @param? positionClassOnMenu
  */
 {template .render}
+	{let $dropdownTrigger kind="html"}
+		{call .trigger data="all" /}
+	{/let}
+
 	{call Dropdown.render data="all"}
-		{param header kind="html"}
-			<button class="btn btn-default dropdown-toggle" data-onclick="toggle" type="button">
-				Default <span class="icon-caret-down"></span>
-			</button>
-		{/param}
+		{param header: $dropdownTrigger /}
 
 		{param body kind="html"}
 			{call .dropdownItems data="all"}
@@ -20,10 +26,44 @@
 			{/call}
 		{/param}
 
-		{param elementClasses: 'dropdown' /}
-		{param position: 0 /}
-		{param positionClassOnMenu: true /}
+		{param alignedPosition: $alignedPosition /}
+		{param classMap: $classMap /}
+		{param elementClasses: $elementClasses ?: 'dropdown' /}
+		{param expanded: $expanded /}
+		{param position: $position /}
+		{param positionClassOnMenu: $positionClassOnMenu /}
 	{/call}
+{/template}
+
+/**
+ *
+ * @param? expanded
+ * @param? triggerCssClass
+ * @param? triggerElement
+ * @param? triggerLabel
+ */
+{template .trigger}
+	{let $triggerAttributes kind="attributes"}
+		aria-expanded="{$expanded}"
+		class="dropdown-toggle{$triggerCssClass ? ' ' + $triggerCssClass : ''}"
+		data-onclick="toggle"
+		href="javascript:;"
+		type="button"
+	{/let}
+
+	{let $triggerContent kind="html"}
+		{$triggerLabel}<span class="icon-caret-down"></span>
+	{/let}
+
+	{if $triggerElement == 'a'}
+		<a {$triggerAttributes}>
+			{$triggerContent}
+		</a>
+	{else}
+		<button {$triggerAttributes}>
+			{$triggerContent}
+		</button>
+	{/if}
 {/template}
 
 /**

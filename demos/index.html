@@ -11,7 +11,8 @@
 		<h1>Lexicon Dropdown Component</h1>
 
 		<script type="text/javascript">
-			new Lexicon.LexiconDropdown({
+			new metal.LexiconDropdown({items:[]});
+			window.myDropdown = new metal.LexiconDropdown({
 				items: [{
 					label: 'Order by:',
 					type: 'header'
@@ -42,7 +43,7 @@
 				}]
 			});
 
-			new Lexicon.LexiconDropdown({
+			new metal.LexiconDropdown({
 				items: [{
 					label: 'Dropdown Header',
 					type: 'header'

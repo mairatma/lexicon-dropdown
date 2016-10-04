@@ -8,8 +8,8 @@
     "node": ">=0.12.0",
     "npm": ">=3.0.0"
   },
-  "main": "lib/Dropdown.js",
-  "jsnext:main": "src/Dropdown.js",
+  "main": "lib/LexiconDropdown.js",
+  "jsnext:main": "src/LexiconDropdown.js",
   "files": [
     "lib",
     "src",
