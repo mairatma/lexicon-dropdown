@@ -71,11 +71,13 @@
  * @param items
  */
 {template .dropdownItems}
-	{foreach $item in $items}
-		{delcall LexiconDropdown.Item variant="$item.type" data="all" }
-			{param item: $item /}
-		{/delcall}
-	{/foreach}
+	{if $items}
+		{foreach $item in $items}
+			{delcall LexiconDropdown.Item variant="$item.type" data="all" }
+				{param item: $item /}
+			{/delcall}
+		{/foreach}
+	{/if}
 {/template}
 
 /**
