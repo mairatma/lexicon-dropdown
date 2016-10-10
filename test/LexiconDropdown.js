@@ -2,12 +2,12 @@
 
 import LexiconDropdown from '../src/LexiconDropdown';
 
-let dropdown;
+let icon;
 
 describe('LexiconDropdown', function() {
 	afterEach(() => {
-		if (dropdown) {
-			dropdown.dispose();
+		if (icon) {
+			icon.dispose();
 		}
 	});
 

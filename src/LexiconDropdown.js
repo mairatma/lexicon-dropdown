@@ -1,4 +1,3 @@
-import Component from 'metal-component';
 import core from 'metal/src/core';
 import MetalDropdown from 'metal-dropdown';
 import Soy from 'metal-soy';
@@ -6,11 +5,11 @@ import Soy from 'metal-soy';
 import templates from './LexiconDropdown.soy';
 
 /**
- * Implementation of the Lexicon Dropdown Piece
- *
+ * Implementation of the Lexicon Dropdown.
  * @see  {@link http://liferay.github.io/lexicon/content/dropdowns/|Lexicon Definition}
  */
-class LexiconDropdown extends MetalDropdown {}
+class LexiconDropdown extends MetalDropdown {
+}
 
 /**
  * State definition.
@@ -19,7 +18,7 @@ class LexiconDropdown extends MetalDropdown {}
  */
 LexiconDropdown.STATE = {
 	/**
-	 * CSS class (or list of classes) for styling the icon's main container
+	 * CSS class (or list of classes) for styling the icon's main container.
 	 * @type {array}
 	 */
 	items: {
@@ -27,7 +26,6 @@ LexiconDropdown.STATE = {
 	}
 };
 
-// Register component
 Soy.register(LexiconDropdown, templates);
 
 export default LexiconDropdown;
