@@ -19,13 +19,11 @@
 
 	{call Dropdown.render data="all"}
 		{param header: $dropdownTrigger /}
-
 		{param body kind="html"}
 			{call .dropdownItems data="all"}
 				{param items: $items /}
 			{/call}
 		{/param}
-
 		{param alignedPosition: $alignedPosition /}
 		{param classMap: $classMap /}
 		{param elementClasses: $elementClasses ?: 'dropdown' /}
